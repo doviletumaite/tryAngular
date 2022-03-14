@@ -1,3 +1,4 @@
+
 <div style="text-align: center;">
 
   <img src="../assets/logo.png" alt="logo" class="logo">
@@ -6,14 +7,24 @@
 <div class="container">
   add smth to do
   <br>
-  <input type="text" class="input-text" placeholder="write here what to do">
-  <button class="add-btn">add</button>
+  <input 
+  type="text" 
+  class="input-text" 
+  placeholder="write here what to do"
+  [(ngModel)]="todoValue"  
+  (keyup.enter)="addItem()"
+  >
+  <button class="add-btn" (click)="addItem()">add</button>
   <div class="list">
     <ul>
-      <li>
-        <input type="checkbox" name="isDone">
-        task 1
-        <button class="btn">delete</button>
+      <li *ngFor="let item of list">
+        <input 
+        type="checkbox" 
+        name="isDone"
+        [(ngModel)]="item.isDone"
+        >
+        {{item.value}}
+        <button class="btn" (click)="deleteItem(item.id)">delete</button>
       </li>
     </ul>
   </div>
