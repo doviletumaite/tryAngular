@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
+import {Todo} from "./todo"
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title:string = 'tryAngular';
-  date = new Date();
-  name:string = "dovi";
+  todoValue:string = ""
+  list:Todo[] = []
 
-  constructor(){
-    console.log("hey")
+  unOnInit(){
+    this.list = [];
+    this.todoValue = "";
   }
-  
 }
